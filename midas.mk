@@ -28,3 +28,7 @@ PRODUCT_PACKAGES += \
     libGLESv2_swiftshader \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
+
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.samsung \
