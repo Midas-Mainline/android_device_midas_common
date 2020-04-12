@@ -17,3 +17,14 @@
 PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl.i9305 \
     android.hardware.memtrack@1.0-service.i9305
+
+# Graphics
+PRODUCT_PACKAGES += \
+    gralloc.gbm \
+    hwcomposer.drm \
+    libGLES_mesa \
+    hwcomposer.ranchu \
+    libEGL_swiftshader \
+    libGLESv2_swiftshader \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service \
