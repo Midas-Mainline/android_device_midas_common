@@ -191,6 +191,30 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 
+########
+# WIFI #
+########
+
+# HAL packages
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
+    libwpa_client \
+    hostapd \
+    wpa_supplicant \
+    wpa_supplicant.conf \
+
+# Wifi
+PRODUCT_COPY_FILES += \
+    device/samsung/midas-common/configs/wpa_supplicant_overlay.conf:system/vendor/etc/wifi/wpa_supplicant_overlay.conf \
+    device/samsung/midas-common/configs/p2p_supplicant_overlay.conf:system/vendor/etc/wifi/p2p_supplicant_overlay.conf
+
+PRODUCT_COPY_FILES += \
+    device/samsung/midas-common/root/firmware/brcmfmac4334-sdio.bin:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/brcm/brcmfmac4334-sdio.bin \
+    device/samsung/midas-common/root/firmware/brcmfmac4334-sdio.txt:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/brcm/brcmfmac4334-sdio.txt \
+    device/samsung/midas-common/root/firmware/brcmfmac4334-sdio.txt:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/brcm/brcmfmac4334-sdio.samsung,i9300.txt \
+    device/samsung/midas-common/root/firmware/regulatory.db:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/regulatory.db \
+    device/samsung/midas-common/root/firmware/regulatory.db.p7s:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/regulatory.db.p7s \
+
 ############
 # Vibrator #
 ############
