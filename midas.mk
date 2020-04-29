@@ -105,7 +105,7 @@ PRODUCT_COPY_FILES += \
 
 # Copy list of unsupported HW features
 PRODUCT_COPY_FILES += \
-    device/samsung/midas-common/unsupported_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/unsupported_hardware.xml
+    $(COMMON_PATH)/unsupported_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/unsupported_hardware.xml
 
 # DRM HAL packages
 PRODUCT_PACKAGES += \
@@ -155,6 +155,20 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
+
+# Wifi
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
+    libwpa_client \
+    hostapd \
+    wpa_supplicant \
+    wpa_supplicant.conf \
+
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/root/firmware/brcmfmac4334-sdio.bin:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/brcm/brcmfmac4334-sdio.bin \
+    $(COMMON_PATH)/root/firmware/brcmfmac4334-sdio.txt:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/brcm/brcmfmac4334-sdio.txt \
+    $(COMMON_PATH)/root/firmware/regulatory.db:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/regulatory.db \
+    $(COMMON_PATH)/root/firmware/regulatory.db.p7s:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/regulatory.db.p7s \
 
 # Get root on the serial console for -eng builds
 # This can help debugging early boot issues
