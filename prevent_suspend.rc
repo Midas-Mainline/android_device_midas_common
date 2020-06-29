@@ -1,0 +1,8 @@
+service prevent_suspend /system/bin/prevent_suspend.sh
+    class main
+    oneshot
+    disabled
+
+on post-fs-data
+    start prevent_suspend
+
