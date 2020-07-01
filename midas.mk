@@ -36,6 +36,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
+# OEM Lock HAL
+PRODUCT_PACKAGES += \
+    android.hardware.oemlock@1.0-service
+
 # VNDK
 PRODUCT_PACKAGES += \
     vndk_package
