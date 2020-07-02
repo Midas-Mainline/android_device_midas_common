@@ -40,6 +40,10 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_PACKAGES += \
     android.hardware.oemlock@1.0-service
 
+# USB HAL
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+
 # VNDK
 PRODUCT_PACKAGES += \
     vndk_package
@@ -151,3 +155,7 @@ PRODUCT_COPY_FILES += device/samsung/midas-common/resize2fs_partitions.sh:system
 # development. Remove afterward as it consume way more energy this way.
 PRODUCT_COPY_FILES += device/samsung/midas-common/prevent_suspend.sh:system/bin/prevent_suspend.sh
 PRODUCT_COPY_FILES += device/samsung/midas-common/prevent_suspend.rc:system/etc/init/prevent_suspend.rc
+
+# Enable Hardware compoments on the framework level
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
