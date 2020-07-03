@@ -36,11 +36,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-# Bluetooth HW support
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-service.btlinux \
-    android.hardware.bluetooth.audio@2.0-impl
-
 # OEM Lock HAL
 PRODUCT_PACKAGES += \
     android.hardware.oemlock@1.0-service
@@ -163,5 +158,4 @@ PRODUCT_COPY_FILES += device/samsung/midas-common/prevent_suspend.rc:system/etc/
 
 # Enable Hardware compoments on the framework level
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
