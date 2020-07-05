@@ -86,6 +86,10 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     frameworks/av/services/audiopolicy/config/surround_sound_configuration_5_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/surround_sound_configuration_5_0.xml
 
+# Copy list of unsupported HW features
+PRODUCT_COPY_FILES += \
+    device/samsung/midas-common/unsupported_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/unsupported_hardware.xml
+
 # DRM HAL packages
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
