@@ -58,24 +58,21 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-service \
 
 # Audio
-PRODUCT_PACKAGES += audio.stub.default
-PRODUCT_PACKAGES += android.hardware.audio@2.0-service
-PRODUCT_PACKAGES += android.hardware.audio@4.0-impl
-PRODUCT_PACKAGES += android.hardware.audio@4.0-service
-PRODUCT_PACKAGES += android.hardware.audio.effect@4.0-impl
-PRODUCT_PACKAGES += android.hardware.audio.effect@4.0-service
+PRODUCT_PACKAGES += \
+    audio.stub.default \
+    android.hardware.audio.effect@5.0-impl \
+    android.hardware.audio@5.0-impl \
+    android.hardware.soundtrigger@2.2-impl \
+    android.hardware.audio@2.0-service \
 
 # A2DP
 PRODUCT_PACKAGES += \
   audio.a2dp.default \
   android.hardware.bluetooth.a2dp@1.0-impl \
-  android.hardware.bluetooth.a2dp@1.0-service \
 
 # Sound trigger
 PRODUCT_PACKAGES += \
     sound_trigger.stub.default \
-    android.hardware.soundtrigger@2.1-impl \
-    android.hardware.soundtrigger@2.1-service \
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
