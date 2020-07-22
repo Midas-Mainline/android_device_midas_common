@@ -48,7 +48,7 @@ TARGET_USES_MKE2FS := true
 
 # Disable VNDK at this point
 BOARD_VNDK_VERSION := current
-BOARD_GPU_DRIVERS := lima
+BOARD_GPU_DRIVERS := lima kmsro swrast
 
 TARGET_USES_64_BIT_BINDER := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
