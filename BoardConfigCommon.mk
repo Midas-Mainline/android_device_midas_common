@@ -34,7 +34,7 @@ BOARD_VENDOR := samsung
 # - Make sure that your kernel source doesn't have
 #   any Android patches that would add the zImage-dtb
 #   target.
-# The vendor/lineage/build/tasks/kernel.mk file
+# The vendor/replicant/build/tasks/kernel.mk file
 # was modified to add support for that feature.
 TARGET_KERNEL_SOURCE := kernel/replicant/linux
 TARGET_KERNEL_CONFIG := replicant_defconfig
