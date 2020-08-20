@@ -14,6 +14,20 @@
 # limitations under the License.
 #
 
+COMMON_PATH := device/samsung/midas-common
+
+# Audio
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf \
+    $(COMMON_PATH)/audio/silence.wav:system/etc/sound/silence.wav \
+    $(COMMON_PATH)/configs/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(COMMON_PATH)/configs/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    $(COMMON_PATH)/configs/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
+
+PRODUCT_COPY_FILES += \
+    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml
+
 PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl.i9305 \
     android.hardware.memtrack@1.0-service.i9305
@@ -59,20 +73,24 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio.stub.default \
-    android.hardware.audio.effect@5.0-impl \
-    android.hardware.audio@5.0-impl \
-    android.hardware.soundtrigger@2.2-impl \
-    android.hardware.audio@2.0-service \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    audio.a2dp.default \
+    audio.primary.smdk4x12 \
+    audio.r_submix.default \
+    audio.usb.default \
+    tinymix
+
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(COMMON_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
 
 # A2DP
 PRODUCT_PACKAGES += \
-  audio.a2dp.default \
-  android.hardware.bluetooth.a2dp@1.0-impl \
-
-# Sound trigger
-PRODUCT_PACKAGES += \
-    sound_trigger.stub.default \
+  android.hardware.bluetooth.a2dp@1.0-impl
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
