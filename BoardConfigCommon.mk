@@ -46,8 +46,6 @@ BOARD_USES_RECOVERY_AS_BOOT := false
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
 
-# Disable VNDK at this point
-BOARD_VNDK_VERSION := current
 BOARD_GPU_DRIVERS := lima kmsro swrast
 
 TARGET_USES_64_BIT_BINDER := true
