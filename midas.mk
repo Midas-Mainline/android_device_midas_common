@@ -16,8 +16,6 @@
 
 COMMON_PATH := device/samsung/midas-common
 
-DEVICE_PACKAGE_OVERLAYS := $(COMMON_PATH)/overlay
-
 # Audio
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf \
