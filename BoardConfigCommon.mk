@@ -66,6 +66,4 @@ BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 BOARD_USES_GENERIC_AUDIO := false
 
-USE_XML_AUDIO_POLICY_CONF := 1
-
 DEVICE_MANIFEST_FILE := device/samsung/midas-common/manifest.xml
