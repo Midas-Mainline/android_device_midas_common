@@ -143,9 +143,15 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf \
 
+# Wifi
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/wpa_supplicant_overlay.conf:system/vendor/etc/wifi/wpa_supplicant_overlay.conf \
+    $(COMMON_PATH)/configs/p2p_supplicant_overlay.conf:system/vendor/etc/wifi/p2p_supplicant_overlay.conf
+
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/root/firmware/brcmfmac4334-sdio.bin:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/brcm/brcmfmac4334-sdio.bin \
     $(COMMON_PATH)/root/firmware/brcmfmac4334-sdio.txt:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/brcm/brcmfmac4334-sdio.txt \
+    $(COMMON_PATH)/root/firmware/brcmfmac4334-sdio.txt:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/brcm/brcmfmac4334-sdio.samsung,i9300.txt \
     $(COMMON_PATH)/root/firmware/regulatory.db:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/regulatory.db \
     $(COMMON_PATH)/root/firmware/regulatory.db.p7s:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/regulatory.db.p7s \
 
@@ -174,3 +180,7 @@ PRODUCT_COPY_FILES += device/samsung/midas-common/prevent_suspend.rc:system/etc/
 # Enable Hardware compoments on the framework level
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
+
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/manifest.xml:system/vendor/manifest.xml

@@ -65,5 +65,3 @@ TARGET_USES_64_BIT_BINDER := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 BOARD_USES_GENERIC_AUDIO := false
-
-DEVICE_MANIFEST_FILE := device/samsung/midas-common/manifest.xml
