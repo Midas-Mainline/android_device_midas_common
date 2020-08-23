@@ -23,10 +23,14 @@ TARGET_CPU_VARIANT := cortex-a9
 
 TARGET_BOARD_PLATFORM := exynos4
 TARGET_BOOTLOADER_BOARD_NAME := smdk4x12
+TARGET_SOC := exynos4x12
 
 TARGET_NO_BOOTLOADER := true
 
 BOARD_VENDOR := samsung
+
+# OMX
+#BOARD_USE_V4L2 := true
 
 # Kernel
 # To append the dtb to the zImage:
@@ -40,6 +44,8 @@ TARGET_KERNEL_SOURCE := kernel/replicant/linux
 TARGET_KERNEL_CONFIG := replicant_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
+TARGET_FS_CONFIG_GEN := device/samsung/midas-common/config.fs
+
 BOARD_USES_FULL_RECOVERY_IMAGE := false
 BOARD_USES_RECOVERY_AS_BOOT := false
 
@@ -47,6 +53,13 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
 
 BOARD_GPU_DRIVERS := lima kmsro swrast
+
+# RIL
+BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
+# RIL
+BOARD_PROVIDES_LIBRIL := true
+BOARD_MODEM_TYPE := xmm6262
+TARGET_SPECIFIC_HEADER_PATH += device/samsung/midas-common/include
 
 # Wifi
 WPA_SUPPLICANT_VERSION      := VER_0_8_X
