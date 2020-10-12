@@ -85,7 +85,7 @@ PRODUCT_COPY_FILES += \
 
 # Copy list of unsupported HW features
 PRODUCT_COPY_FILES += \
-    device/samsung/midas-common/unsupported_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/unsupported_hardware.xml
+    $(LOCAL_PATH)/unsupported_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/unsupported_hardware.xml
 
 # DRM HAL packages
 PRODUCT_PACKAGES += \
@@ -139,7 +139,7 @@ PRODUCT_PACKAGES += \
 # Get root on the serial console for -eng builds
 # This can help debugging early boot issues
 ifeq ($(TARGET_BUILD_VARIANT),eng)
-PRODUCT_COPY_FILES += device/samsung/midas-common/console.rc:system/etc/init/console.rc
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/console.rc:system/etc/init/console.rc
 endif
 
 # ADB support
@@ -151,14 +151,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += gatekeeper.default
 
 # Enable flashing through heimdall
-PRODUCT_COPY_FILES += device/samsung/midas-common/resize2fs_partitions.sh:system/bin/resize2fs_partitions.sh
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/resize2fs_partitions.sh:system/bin/resize2fs_partitions.sh
 
 # HACK: prevent the device to go in suspend because it's annoying during early
 # development. Remove afterward as it consume way more energy this way.
-PRODUCT_COPY_FILES += device/samsung/midas-common/prevent_suspend.sh:system/bin/prevent_suspend.sh
-PRODUCT_COPY_FILES += device/samsung/midas-common/prevent_suspend.rc:system/etc/init/prevent_suspend.rc
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/prevent_suspend.sh:system/bin/prevent_suspend.sh
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/prevent_suspend.rc:system/etc/init/prevent_suspend.rc
 
-PRODUCT_COPY_FILES += device/samsung/midas-common/allocator/android.hardware.graphics.allocator@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.allocator@2.0-override-service.rc
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/allocator/android.hardware.graphics.allocator@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.allocator@2.0-override-service.rc
 
 # Enable Hardware compoments on the framework level
 PRODUCT_COPY_FILES += \
