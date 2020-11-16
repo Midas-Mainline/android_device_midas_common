@@ -14,10 +14,6 @@
 # limitations under the License.
 #
 
-PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-impl.i9305 \
-    android.hardware.memtrack@1.0-service.i9305
-
 # Graphics
 PRODUCT_PACKAGES += \
     gralloc.gbm \
@@ -36,13 +32,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-# OEM Lock HAL
-PRODUCT_PACKAGES += \
-    android.hardware.oemlock@1.0-service
-
 # USB HAL
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
+
+PRODUCT_PACKAGES += \
+	android.hardware.health@2.1-service \
+	android.hardware.health@2.1-impl \
+
+# Power HAL
+PRODUCT_PACKAGES += \
+	android.hardware.power-service.example \
 
 # VNDK
 PRODUCT_PACKAGES += \
@@ -60,9 +60,9 @@ PRODUCT_PACKAGES += \
 # Audio
 PRODUCT_PACKAGES += \
     audio.stub.default \
-    android.hardware.audio.effect@5.0-impl \
-    android.hardware.audio@5.0-impl \
-    android.hardware.soundtrigger@2.2-impl \
+    android.hardware.audio.effect@6.0-impl \
+    android.hardware.audio@6.0-impl \
+    android.hardware.soundtrigger@2.3-impl \
     android.hardware.audio@2.0-service \
 
 # A2DP
@@ -75,6 +75,7 @@ PRODUCT_PACKAGES += \
     sound_trigger.stub.default \
 
 PRODUCT_COPY_FILES += \
+	kernel/replicant/linux/zImage-dtb:kernel \
     frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_configuration_stub.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/stub_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/stub_audio_policy_configuration.xml \
@@ -108,11 +109,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
 
-# Power HAL packages
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl \
-    android.hardware.power@1.0-service \
-
 # Memory HAL packages
 PRODUCT_PACKAGES += \
     android.hidl.memory@1.0-impl \
@@ -126,15 +122,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vr@1.0-impl \
 
-# Gatekeeper
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service \
-
 # DRM – check if this needs to be removed!
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
+
+PRODUCT_PACKAGES += \
+	android.hardware.gatekeeper@1.0-service.software
 
 # Get root on the serial console for -eng builds
 # This can help debugging early boot issues
@@ -146,9 +140,6 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.service.adb.enable=1 \
     persist.sys.usb.config=adb
-
-# Hack to get a working GateKeeper
-PRODUCT_PACKAGES += gatekeeper.default
 
 # Enable flashing through heimdall
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/resize2fs_partitions.sh:system/bin/resize2fs_partitions.sh
