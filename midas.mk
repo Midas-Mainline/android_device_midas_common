@@ -62,17 +62,16 @@ PRODUCT_PACKAGES += \
     audio.stub.default \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio@6.0-impl \
-    android.hardware.soundtrigger@2.3-impl \
     android.hardware.audio@2.0-service \
+
+# Use dummy sound trigger
+PRODUCT_PACKAGES += \
+    android.hardware.soundtrigger@2.2-impl.ranchu \
 
 # A2DP
 PRODUCT_PACKAGES += \
   audio.a2dp.default \
   android.hardware.bluetooth.a2dp@1.0-impl \
-
-# Sound trigger
-PRODUCT_PACKAGES += \
-    sound_trigger.stub.default \
 
 PRODUCT_COPY_FILES += \
 	kernel/replicant/linux/zImage-dtb:kernel \
