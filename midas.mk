@@ -59,25 +59,25 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio.stub.default \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio@6.0-impl \
     android.hardware.audio@2.0-service \
+    audio.r_submix.default \
+    audio.primary.default \
 
 # Use dummy sound trigger
 PRODUCT_PACKAGES += \
-    android.hardware.soundtrigger@2.2-impl.ranchu \
+    android.hardware.soundtrigger@2.2-impl \
 
 # A2DP
 PRODUCT_PACKAGES += \
   audio.a2dp.default \
-  android.hardware.bluetooth.a2dp@1.0-impl \
 
 PRODUCT_COPY_FILES += \
 	kernel/replicant/linux/zImage-dtb:kernel \
     frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
-    frameworks/av/services/audiopolicy/config/audio_policy_configuration_stub.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/stub_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/stub_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/audio_policy_configuration_generic.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/primary_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/primary_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
