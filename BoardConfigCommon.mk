@@ -28,6 +28,18 @@ TARGET_NO_BOOTLOADER := true
 
 BOARD_VENDOR := samsung
 
+# Kernel
+# To append the dtb to the zImage:
+# - Use BOARD_DTB_IMAGE_NAME with the right dtb
+# - Make sure that your kernel source doesn't have
+#   any Android patches that would add the zImage-dtb
+#   target.
+# The vendor/lineage/build/tasks/kernel.mk file
+# was modified to add support for that feature.
+TARGET_KERNEL_SOURCE := kernel/replicant/linux
+TARGET_KERNEL_CONFIG := replicant_defconfig
+BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+
 BOARD_USES_FULL_RECOVERY_IMAGE := false
 BOARD_USES_RECOVERY_AS_BOOT := false
 
@@ -50,3 +62,5 @@ DEVICE_MANIFEST_FILE := device/samsung/midas-common/manifest.xml
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 BUILD_BROKEN_USES_BUILD_HOST_STATIC_LIBRARY := true
 BOARD_VENDOR_SEPOLICY_DIRS += device/samsung/midas-common/sepolicy
+
+-include vendor/replicant/config/BoardConfigReplicant.mk

@@ -131,13 +131,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/resize2fs_partitions.sh:system/bin/resize2fs_partitions.sh
 
 ##########
-# Kernel #
-##########
-
-PRODUCT_COPY_FILES += \
-	kernel/replicant/linux/zImage-dtb:kernel \
-
-##########
 # Lights #
 ##########
 
