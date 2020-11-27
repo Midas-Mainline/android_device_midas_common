@@ -50,6 +50,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
 
+# Enable Hardware compoments on the framework level
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
+
 ##########
 # Health #
 ##########
@@ -209,11 +213,3 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/resize2fs_partitions.sh:system/bin/resize2fs
 # development. Remove afterward as it consume way more energy this way.
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/prevent_suspend.sh:system/bin/prevent_suspend.sh
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/prevent_suspend.rc:system/etc/init/prevent_suspend.rc
-
-#######
-# USB #
-#######
-
-# Enable Hardware compoments on the framework level
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
