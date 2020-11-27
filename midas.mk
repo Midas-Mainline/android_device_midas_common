@@ -112,7 +112,10 @@ PRODUCT_PACKAGES += \
 # Heimdall support #
 ####################
 
-# Enable flashing through heimdall
+# Enable flashing through heimdall: On the Exynos devices supported by Replicant
+# 6.0, heimdall is reliable enough to flash small files like boot.img or
+# recovery.img but flashing bigger files like a system.img that is the size of
+# the target partition would increase too much the probability of failure.
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/resize2fs_partitions.sh:system/bin/resize2fs_partitions.sh
 
 ##########
