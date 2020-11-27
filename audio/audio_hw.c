@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#define MIXER_XML_PATH "/vendor/etc/mixer_paths.xml"
+
 #define LOG_TAG "audio_hw_dragonboard"
 //#define LOG_NDEBUG 0
 
@@ -33,6 +35,7 @@
 #include <system/audio.h>
 #include <hardware/audio.h>
 
+#include <audio_route/audio_route.h>
 #include <sound/asound.h>
 #include <tinyalsa/asoundlib.h>
 #include <audio_utils/resampler.h>
@@ -69,6 +72,8 @@ struct alsa_audio_device {
     int devices;
     struct alsa_stream_in *active_input;
     struct alsa_stream_out *active_output;
+    struct audio_route *audio_route;
+    struct mixer *mixer;
     bool mic_mute;
 };
 
@@ -670,6 +675,35 @@ static int adev_open(const hw_module_t* module, const char* name,
     adev->devices = AUDIO_DEVICE_NONE;
 
     *device = &adev->hw_device.common;
+
+    /* TODO: Ideally we should use Alsa UCM instead of libaudioroute
+     * because with Alsa UCM:
+     * - We can share the work with GNU/Linux. For instance we
+     *   might have automatic support for the PinePhone and our
+     *   work would benefit GNU/Linux distributions as well.
+     * - It opens the door to generic images: With Alsa UCM, we
+     *   don't need build time configuration anymore: we could
+     *   ship a single audio library and Alsa UCM would take care
+     *   of the routing and abstract away the device specific part
+     *   for us. If we code that ourselves, it will probably not
+     *   be as fine grained nor as good as Alsa UCM.
+     * - It can be experimented with without even recompiling, this
+     *   could make porting Replicant to new devices much less time
+     * consuming and way easier.
+     */
+    adev->mixer = mixer_open(CARD_OUT);
+
+    if (!adev->mixer) {
+        ALOGE("Unable to open the mixer, aborting.");
+        return -EINVAL;
+    }
+
+    /* Set default audio route */
+    adev->audio_route = audio_route_init(CARD_OUT, MIXER_XML_PATH);
+    if (!adev->audio_route) {
+        ALOGE("%s: Failed to init audio route controls, aborting.", __func__);
+        return -EINVAL;
+    }
 
     return 0;
 }
