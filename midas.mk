@@ -130,6 +130,7 @@ PRODUCT_PACKAGES += \
 ############
 # Keymaster HAL packages
 PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-service.software \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service \
 
@@ -165,13 +166,6 @@ PRODUCT_PACKAGES += \
 # HAL packages
 PRODUCT_PACKAGES += \
     android.hardware.vr@1.0-impl \
-
-############
-# Security #
-############
-PRODUCT_PACKAGES += \
-	android.hardware.gatekeeper@1.0-service.software
-
 #########
 # Debug #
 #########
