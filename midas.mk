@@ -29,11 +29,22 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
     android.hardware.audio@2.0-service \
     android.hardware.audio.effect@6.0-impl \
-    audio.primary.default \
     audio.r_submix.default \
 
 # Use dummy sound trigger
 PRODUCT_PACKAGES +=  android.hardware.soundtrigger@2.2-impl
+
+# HAL for handling audio frames
+PRODUCT_PACKAGES += audio.primary.exynos4
+
+# We do need debug utilities on the target to enable users to be able to give
+# certain information without needing to recompile an image. In addition it
+# makes experimenting with audio easier.
+PRODUCT_PACKAGES += \
+    tinyplay \
+    tinycap \
+    tinymix \
+    tinypcminfo
 
 # A2DP
 PRODUCT_PACKAGES += audio.a2dp.default
