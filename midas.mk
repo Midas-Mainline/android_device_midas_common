@@ -27,17 +27,31 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
 
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
+PRODUCT_PACKAGES += \
+    gralloc.gbm \
+    hwcomposer.ranchu \
+    libEGL_swiftshader \
+    libGLESv2_swiftshader \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service \
+
+# HAL packages
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.renderscript@1.0-impl \
+
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/allocator/android.hardware.graphics.allocator@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.allocator@2.0-override-service.rc
+
 ##########
 # Lights #
 ##########
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.samsung \
-
-############
-# Graphics #
-############
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 #######
 # USB #
@@ -67,17 +81,6 @@ PRODUCT_PACKAGES += \
 ########
 PRODUCT_PACKAGES += \
     vndk_package
-
-############
-# Graphics #
-############
-PRODUCT_PACKAGES += \
-    gralloc.gbm \
-    hwcomposer.ranchu \
-    libEGL_swiftshader \
-    libGLESv2_swiftshader \
-    android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.composer@2.1-service \
 
 #########
 # Audio #
@@ -136,17 +139,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service \
-
-############
-# Graphics #
-############
-
-# HAL packages
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.renderscript@1.0-impl \
 
 ############
 # Vibrator #
@@ -228,11 +220,6 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/resize2fs_partitions.sh:system/bin/resize2fs
 # development. Remove afterward as it consume way more energy this way.
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/prevent_suspend.sh:system/bin/prevent_suspend.sh
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/prevent_suspend.rc:system/etc/init/prevent_suspend.rc
-
-############
-# Graphics #
-############
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/allocator/android.hardware.graphics.allocator@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.allocator@2.0-override-service.rc
 
 #######
 # USB #
