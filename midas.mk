@@ -26,19 +26,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #########
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio.effect@6.0-impl \
     android.hardware.audio@6.0-impl \
     android.hardware.audio@2.0-service \
-    audio.r_submix.default \
+    android.hardware.audio.effect@6.0-impl \
     audio.primary.default \
+    audio.r_submix.default \
 
 # Use dummy sound trigger
-PRODUCT_PACKAGES += \
-    android.hardware.soundtrigger@2.2-impl \
+PRODUCT_PACKAGES +=  android.hardware.soundtrigger@2.2-impl
 
 # A2DP
-PRODUCT_PACKAGES += \
-  audio.a2dp.default \
+PRODUCT_PACKAGES += audio.a2dp.default
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
