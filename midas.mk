@@ -125,6 +125,11 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.0-impl \
 
+# TODO: check if this needs to be removed!
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-service \
+
 ############
 # Security #
 ############
@@ -165,15 +170,6 @@ PRODUCT_PACKAGES += \
 # HAL packages
 PRODUCT_PACKAGES += \
     android.hardware.vr@1.0-impl \
-
-########################################
-# DRM (Digital Restriction Management) #
-########################################
-
-# TODO: check if this needs to be removed!
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service \
 
 ############
 # Security #
