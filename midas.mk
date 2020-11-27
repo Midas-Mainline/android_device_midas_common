@@ -120,11 +120,6 @@ PRODUCT_COPY_FILES += \
 # DRM (Digital Restriction Management) #
 ########################################
 
-# HAL packages
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-service \
-    android.hardware.drm@1.0-impl \
-
 # TODO: check if this needs to be removed!
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
