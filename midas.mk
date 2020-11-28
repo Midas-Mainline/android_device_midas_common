@@ -41,7 +41,7 @@ PRODUCT_PACKAGES += audio.primary.exynos4
 # headphones.
 PRODUCT_PACKAGES += libaudioroute
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
+    $(LOCAL_PATH)/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
 
 # We do need debug utilities on the target to enable users to be able to give
 # certain information without needing to recompile an image. In addition it
