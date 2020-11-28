@@ -37,9 +37,6 @@ PRODUCT_PACKAGES +=  android.hardware.soundtrigger@2.2-impl
 # HAL for handling audio frames
 PRODUCT_PACKAGES += audio.primary.exynos4
 
-# Hal for handling alsa controls, for instance the switch between speakers and
-# headphones.
-PRODUCT_PACKAGES += libaudioroute
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
 
