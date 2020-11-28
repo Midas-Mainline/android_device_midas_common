@@ -24,12 +24,14 @@ include $(CLEAR_VARS)
 
 LOCAL_HEADER_LIBRARIES += libhardware_headers
 LOCAL_MODULE := audio.primary.$(TARGET_BOARD_PLATFORM)
-LOCAL_MODULE_PATH_32 := $(TARGET_OUT_VENDOR)/lib/hw
-LOCAL_MODULE_PATH_64 := $(TARGET_OUT_VENDOR)/lib64/hw
+LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_VENDOR_MODULE := true
 
-LOCAL_SRC_FILES := audio_hw.c
-LOCAL_SHARED_LIBRARIES := liblog libcutils libtinyalsa libaudioroute
+LOCAL_SRC_FILES := audio_hw.c \
+    audio_aec.c \
+    fifo_wrapper.cpp \
+    fir_filter.c
+LOCAL_SHARED_LIBRARIES := liblog libcutils libtinyalsa libaudioroute libaudioutils
 LOCAL_CFLAGS := -Wno-unused-parameter
 LOCAL_C_INCLUDES += \
         external/tinyalsa/include \
@@ -39,4 +41,3 @@ LOCAL_C_INCLUDES += \
         system/media/audio_effects/include
 
 include $(BUILD_SHARED_LIBRARY)
-
