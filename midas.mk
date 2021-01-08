@@ -212,3 +212,6 @@ PRODUCT_PACKAGES += \
 # HAL packages
 PRODUCT_PACKAGES += \
     android.hardware.vr@1.0-impl \
+
+# Prebuilt APKs from F-Droid
+-include vendor/f-droid/prebuilts.mk
