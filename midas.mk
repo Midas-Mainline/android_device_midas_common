@@ -146,6 +146,14 @@ PRODUCT_PACKAGES += \
     android.hidl.memory@1.0-impl \
     android.hidl.memory@1.0-service \
 
+PRODUCT_TAGS += dalvik.gc.type-precise
+
+# Use GO
+$(call inherit-product, $(LOCAL_PATH)/go_defaults_common.mk)
+
+# Apply Dalvik config for 1G phone
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+
 #########
 # Power #
 #########
