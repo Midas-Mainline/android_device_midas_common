@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <!--
      Copyright 2018 Joonas Kylmälä
 
@@ -14,25 +13,16 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
-<manifest version="1.0" type="device" target-level="5">
-    <hal>
-        <name>android.hardware.graphics.mapper</name>
-        <transport arch="32+64">passthrough</transport>
-        <version>2.1</version>
-        <interface>
-            <name>IMapper</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal>
-        <name>android.hardware.graphics.allocator</name>
+<manifest version="2.0" type="device" target-level="5">
+    <hal format="hidl">
+        <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
-        <version>2.0</version>
+        <version>6.0</version>
         <interface>
-            <name>IAllocator</name>
+            <name>IDevicesFactory</name>
             <instance>default</instance>
         </interface>
+        <fqname>@6.0::IDevicesFactory/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.audio.effect</name>
@@ -42,38 +32,12 @@
             <name>IEffectsFactory</name>
             <instance>default</instance>
         </interface>
+        <fqname>@6.0::IEffectsFactory/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.audio</name>
-        <transport>hwbinder</transport>
-        <version>6.0</version>
-        <interface>
-            <name>IDevicesFactory</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal>
-        <name>android.hardware.keymaster</name>
-        <transport>hwbinder</transport>
-        <version>3.0</version>
-        <interface>
-            <name>IKeymasterDevice</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal>
-        <name>android.hardware.graphics.composer</name>
-        <transport>hwbinder</transport>
-        <version>2.1</version>
-        <interface>
-            <name>IComposer</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal>
         <name>android.hardware.drm</name>
         <transport>hwbinder</transport>
-        <version>1.3</version>
+        <version>1.1</version>
         <interface>
             <name>ICryptoFactory</name>
             <instance>default</instance>
@@ -82,8 +46,50 @@
             <name>IDrmFactory</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.1::ICryptoFactory/default</fqname>
+        <fqname>@1.1::IDrmFactory/default</fqname>
     </hal>
-    <hal>
+    <hal format="hidl">
+        <name>android.hardware.graphics.allocator</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>IAllocator</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::IAllocator/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.graphics.composer</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IComposer</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.1::IComposer/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.graphics.mapper</name>
+        <transport arch="32+64">passthrough</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IMapper</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.1::IMapper/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.keymaster</name>
+        <transport>hwbinder</transport>
+        <version>3.0</version>
+        <interface>
+            <name>IKeymasterDevice</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@3.0::IKeymasterDevice/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.media.omx</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -95,5 +101,23 @@
             <name>IOmxStore</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IOmx/default</fqname>
+        <fqname>@1.0::IOmxStore/default</fqname>
     </hal>
+
+    <hal format="hidl">
+        <name>android.hardware.light</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>ILight</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::ILight/default</fqname>
+    </hal>
+
+    <sepolicy>
+        <version>30.0</version>
+    </sepolicy>
+    <kernel target-level="5"/>
 </manifest>
