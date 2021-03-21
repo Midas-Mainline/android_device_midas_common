@@ -27,32 +27,32 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
-    android.hardware.audio@2.0-service \
+    android.hardware.audio.service \
     android.hardware.audio.effect@6.0-impl \
-    audio.r_submix.default \
-
-# Use dummy sound trigger
-PRODUCT_PACKAGES +=  android.hardware.soundtrigger@2.2-impl
+    android.hardware.soundtrigger@2.2-impl \
 
 # HAL for handling audio frames
-PRODUCT_PACKAGES += audio.primary.exynos4
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
+PRODUCT_PACKAGES += \
+    audio.primary.i9300
 
 # We do need debug utilities on the target to enable users to be able to give
 # certain information without needing to recompile an image. In addition it
 # makes experimenting with audio easier.
 PRODUCT_PACKAGES += \
-    tinyplay \
     tinycap \
     tinymix \
-    tinypcminfo
+    tinypcminfo \
+    tinyalsa \
+    tinyplay \
 
 # A2DP
-PRODUCT_PACKAGES += audio.a2dp.default
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    audio.usb.default \
+    audio.r_submix.default \
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio.i9300.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio.i9300.xml \
     frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_configuration_generic.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/primary_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/primary_audio_policy_configuration.xml \
