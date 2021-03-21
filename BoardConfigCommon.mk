@@ -49,6 +49,8 @@ TARGET_USES_MKE2FS := true
 # Disable VNDK at this point
 BOARD_VNDK_VERSION := current
 BOARD_GPU_DRIVERS := lima kmsro
+USE_OPENGL_RENDERER := true
+BOARD_USES_GRALLOC_HANDLE := true
 
 # Wifi
 WPA_SUPPLICANT_VERSION      := VER_0_8_X
