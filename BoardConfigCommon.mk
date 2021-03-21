@@ -38,7 +38,7 @@ BOARD_VENDOR := samsung
 # was modified to add support for that feature.
 TARGET_KERNEL_SOURCE := kernel/replicant/linux
 TARGET_KERNEL_CONFIG := replicant_defconfig
-BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+BOARD_KERNEL_IMAGE_NAME := zImage
 
 BOARD_USES_FULL_RECOVERY_IMAGE := false
 BOARD_USES_RECOVERY_AS_BOOT := false
@@ -75,5 +75,3 @@ PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 BUILD_BROKEN_USES_BUILD_HOST_STATIC_LIBRARY := true
 BOARD_VENDOR_SEPOLICY_DIRS += device/samsung/midas-common/sepolicy
-
--include vendor/replicant/config/BoardConfigReplicant.mk
