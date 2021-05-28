@@ -13,5 +13,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/BCM.hcd:$(TARGET_COPY_OUT_VENDOR)/lib/firmware/brcm/BCM.hcd \
+    $(LOCAL_PATH)/init.bluetooth.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.bluetooth.rc
 
 DEVICE_MANIFEST_FILE += $(LOCAL_PATH)/manifest.xml
