@@ -118,7 +118,8 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/prevent_suspend.rc:system/etc/init/prevent_s
 
 PRODUCT_PACKAGES += \
 	android.hardware.health@2.1-service \
-	android.hardware.health@2.1-impl \
+	android.hardware.health@2.1-impl-midas \
+	android.hardware.health@2.1-impl-midas.recovery
 
 ####################
 # Heimdall support #
