@@ -79,11 +79,9 @@ static V1_0::Status validateAndSetVidPid(uint64_t functions) {
 
     switch (functions) {
         case static_cast<uint64_t>(V1_0::GadgetFunction::MTP):
-            ALOGI("validateAndSetVidPid - setting MTP mode");
             ret = setVidPid("0x18d1", "0x4ee1");
             break;
         case V1_0::GadgetFunction::ADB | V1_0::GadgetFunction::MTP:
-            ALOGI("validateAndSetVidPid - setting ADB,MTP mode");
             ret = setVidPid("0x18d1", "0x4ee2");
             break;
         case static_cast<uint64_t>(V1_0::GadgetFunction::RNDIS):
@@ -93,15 +91,12 @@ static V1_0::Status validateAndSetVidPid(uint64_t functions) {
             ret = setVidPid("0x18d1", "0x4ee4");
             break;
         case static_cast<uint64_t>(V1_0::GadgetFunction::PTP):
-            ALOGI("validateAndSetVidPid - setting PTP mode");
             ret = setVidPid("0x18d1", "0x4ee5");
             break;
         case V1_0::GadgetFunction::ADB | V1_0::GadgetFunction::PTP:
-            ALOGI("validateAndSetVidPid - setting ADB,PTP mode");
             ret = setVidPid("0x18d1", "0x4ee6");
             break;
         case static_cast<uint64_t>(V1_0::GadgetFunction::ADB):
-            ALOGI("validateAndSetVidPid - setting ADB mode");
             ret = setVidPid("0x18d1", "0x4ee7");
             break;
         case static_cast<uint64_t>(V1_0::GadgetFunction::MIDI):
@@ -142,32 +137,22 @@ V1_0::Status UsbGadget::setupFunctions(uint64_t functions,
     bool ffsEnabled = false;
     int i = 0;
 
-    ALOGI("setupFunctions #1");
-
     if (addGenericAndroidFunctions(&monitorFfs, functions, &ffsEnabled, &i) !=
         V1_0::Status::SUCCESS)
         return V1_0::Status::ERROR;
 
-    ALOGI("setupFunctions #2");
-
     if ((functions & V1_0::GadgetFunction::ADB) != 0) {
         ffsEnabled = true;
-        ALOGI("setupFunctions #3");
         if (addAdb(&monitorFfs, &i) != V1_0::Status::SUCCESS) return V1_0::Status::ERROR;
     }
 
-    ALOGI("setupFunctions #4");
-
     // Pull up the gadget right away when there are no ffs functions.
     if (!ffsEnabled) {
-        ALOGI("setupFunctions #5");
         if (!WriteStringToFile(kGadgetName, PULLUP_PATH)) return V1_0::Status::ERROR;
         mCurrentUsbFunctionsApplied = true;
         if (callback) callback->setCurrentUsbFunctionsCb(functions, V1_0::Status::SUCCESS);
         return V1_0::Status::SUCCESS;
     }
-
-    ALOGI("setupFunctions #6");
 
     monitorFfs.registerFunctionsAppliedCallback(&currentFunctionsAppliedCallback, this);
     // Monitors the ffs paths to pull up the gadget when descriptors are written.
