@@ -59,8 +59,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
-    frameworks/av/services/audiopolicy/config/surround_sound_configuration_5_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/surround_sound_configuration_5_0.xml \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.light.xml
+    frameworks/av/services/audiopolicy/config/surround_sound_configuration_5_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/surround_sound_configuration_5_0.xml
 
 #########
 # Debug #
@@ -136,7 +135,11 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/resize2fs_partitions.sh:system/bin/resize2fs
 ##########
 
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.samsung \
+    android.hardware.light-service \
+    lights-midas
+
+PRODUCT_PROPERTY_OVERRIDES += ro.hardware.lights=midas
+
 
 ##########
 # Memory #
@@ -145,10 +148,7 @@ PRODUCT_PACKAGES += \
 # HAL packages
 PRODUCT_PACKAGES += \
     android.hidl.memory@1.0-impl \
-    android.hidl.memory@1.0-service \
-    lights.midas \
-    android.hardware.light@2.0-impl:64 \
-    android.hardware.light@2.0-servic
+    android.hidl.memory@1.0-service
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -179,7 +179,7 @@ PRODUCT_COPY_FILES += \
 
 # HAL packages
 PRODUCT_PACKAGES += \
-	android.hardware.power-service.example \
+    android.hardware.power-service.example \
 
 ############
 # Security #
