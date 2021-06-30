@@ -134,12 +134,7 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/resize2fs_partitions.sh:system/bin/resize2fs
 # Lights #
 ##########
 
-PRODUCT_PACKAGES += \
-    android.hardware.light-service \
-    lights-midas
-
-PRODUCT_PROPERTY_OVERRIDES += ro.hardware.lights=midas
-
+PRODUCT_PACKAGES += lights-midas
 
 ##########
 # Memory #

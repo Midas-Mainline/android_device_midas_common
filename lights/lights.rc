@@ -2,6 +2,4 @@ service vendor.lights-midas  /vendor/bin/hw/lights-midas
     class hal
     user system
     group system
-    # FIXME: actually do this
-    # shutting off lights while powering-off
     shutdown critical
