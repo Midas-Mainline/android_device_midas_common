@@ -97,6 +97,8 @@ on fs
     # non early mounts
     mount_all /vendor/etc/fstab.${ro.hardware} --late
     setprop ro.crypto.fuse_sdcard false
+    # don't wake up the system every 30 seconds
+    write /sys/devices/platform/soc/138d0000.i2c/i2c-7/7-0009/max77686-rtc/power/wakeup disabled
 
 on early-boot
     chmod 777 /dev/binder
