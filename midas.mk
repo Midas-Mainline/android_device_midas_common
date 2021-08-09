@@ -280,5 +280,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vr@1.0-impl \
 
+# local includes
+# $(call inherit-product,$(LOCAL_PATH)/bluetooth/bluetooth.mk)
+
 # Prebuilt APKs from F-Droid
 -include vendor/f-droid/prebuilts.mk
