@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+import /vendor/etc/init/hw/init.${ro.hardware}.usb.rc
+
 ## init goal order
 # early-init, init, late-init
 # early-fs, fs, post-fs, late-fs, post-fs-data
