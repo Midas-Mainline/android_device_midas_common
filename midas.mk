@@ -148,6 +148,14 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
+###########
+# Rootdir #
+###########
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/init.smdk4x12.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.smdk4x12.rc  \
+    $(LOCAL_PATH)/rootdir/init.smdk4x12.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.smdk4x12.usb.rc \
+
 # Use GO
 $(call inherit-product, $(LOCAL_PATH)/go_defaults_common.mk)
 
