@@ -220,14 +220,6 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service-midas \
     android.hardware.usb.gadget@1.1-service-midas
 
-###########################
-# Unsupported HW features #
-###########################
-
-# Copy list of unsupported HW features
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/unsupported_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/unsupported_hardware.xml
-
 #######
 # USB #
 #######
