@@ -1,4 +1,4 @@
-#define LOG_TAG "health-p4note"
+#define LOG_TAG "health-midas"
 
 #include <memory>
 #include <string_view>
@@ -27,7 +27,7 @@ namespace health {
 namespace V2_1 {
 namespace implementation {
 
-#define CHARGER_SYSFS_PATH "/sys/class/power_supply/smb347-usb/"
+#define CHARGER_SYSFS_PATH "/sys/class/power_supply/max77693-charger/"
 #define CHARGER_STATUS_SYSFS_PATH CHARGER_SYSFS_PATH "status"
 
 #define BATTERY_SYSFS_PATH "/sys/class/power_supply/max170xx_battery/"
