@@ -100,6 +100,10 @@ on fs
     setprop ro.crypto.fuse_sdcard false
     # don't wake up the system every 30 seconds
     write /sys/devices/platform/soc/138d0000.i2c/i2c-7/7-0009/max77686-rtc/power/wakeup disabled
+    write /sys/module/firmware_class/parameters/path /vendor/lib/firmware
+
+    exec u:r:modprobe:s0 -- /vendor/bin/modprobe -a -d \
+        /vendor/lib/modules bluetooth.ko bnep.ko btbcm.ko hci_uart.ko hidp.ko rfcomm.ko
 
 on early-boot
     chmod 777 /dev/binder
