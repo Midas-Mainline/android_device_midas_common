@@ -47,10 +47,7 @@ PRODUCT_PACKAGES += com.android.tethering.inprocess
 # leave less information available via JDWP.
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
-# Disable Scudo outside of eng builds to save RAM.
-ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-  PRODUCT_DISABLE_SCUDO := true
-endif
+PRODUCT_DISABLE_SCUDO := true
 
 # Add the system properties.
 #TARGET_SYSTEM_PROP += \
