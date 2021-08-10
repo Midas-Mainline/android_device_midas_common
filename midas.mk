@@ -84,30 +84,24 @@ PRODUCT_PACKAGES += \
 # Graphics #
 ############
 
-# Graphics
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@4.0-service.minigbm_gbm_mesa \
-    android.hardware.graphics.mapper@4.0-impl.minigbm_gbm_mesa \
-    android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.composer@2.1-service \
-    android.hardware.renderscript@1.0-impl
-
-PRODUCT_PACKAGES += \
+    gralloc.gbm \
     hwcomposer.drm \
     hwcomposer.ranchu \
     libEGL_swiftshader \
     libGLES_mesa \
     libGLESv2_swiftshader \
-    libEGL_mesa \
-    libGLESv1_CM_mesa \
-    libGLESv2_mesa \
-    libGLES_android \
-    libgallium_dri \
-    libglapi \
-    libgbm
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.renderscript@1.0-impl \
 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/allocator/android.hardware.graphics.allocator@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.allocator@2.0-override-service.rc
 
 #########
 # Hacks #
