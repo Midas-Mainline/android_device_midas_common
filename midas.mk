@@ -220,14 +220,6 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service-midas \
     android.hardware.usb.gadget@1.1-service-midas
 
-#######
-# USB #
-#######
-
-# HAL packages
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
-
 # Enable Hardware compoments on the framework level
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
