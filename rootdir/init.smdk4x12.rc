@@ -58,37 +58,14 @@ on early-init
 on boot
     # Audio support
     # adb support
-    setprop sys.usb.ffs.aio_compat 1
-    setprop persist.adb.nonblocking_ffs 0
+    #setprop sys.usb.ffs.aio_compat 1
+    #setprop persist.adb.nonblocking_ffs 0
     setprop ro.adb.nonblocking_ffs 0
 
-    mount configfs none /config
-    mkdir /config/usb_gadget/g1 0770 shell shell
-    mkdir /config/usb_gadget/g1/strings/0x409 0770 shell shell
-    write /config/usb_gadget/g1/bcdUSB 0x0200
-    write /config/usb_gadget/g1/driver_match_existing_only 0
-    write /config/usb_gadget/g1/idVendor 0x04e8
-    write /config/usb_gadget/g1/idProduct 0x6860
-    write /config/usb_gadget/g1/bcdDevice 0x0223
-    write /config/usb_gadget/g1/strings/0x409/serialnumber "0123456789ABCDEF"
-    write /config/usb_gadget/g1/strings/0x409/manufacturer "Samsung"
-    write /config/usb_gadget/g1/strings/0x409/product "S3"
-    mkdir /config/usb_gadget/g1/functions/accessory.gs2
-    mkdir /config/usb_gadget/g1/functions/audio_source.gs3
-    mkdir /config/usb_gadget/g1/functions/midi.gs5
-    mkdir /config/usb_gadget/g1/functions/ffs.adb
-    mkdir /config/usb_gadget/g1/functions/ffs.mtp
-    mkdir /config/usb_gadget/g1/functions/ffs.ptp
-    mkdir /config/usb_gadget/g1/configs/b.1 0770 shell shell
-    mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409 0770 shell shell
-    write /config/usb_gadget/g1/os_desc/b_vendor_code 0x1
-    write /config/usb_gadget/g1/os_desc/qw_sign "MSFT100"
-    write /config/usb_gadget/g1/configs/b.1/MaxPower 500
-
-    mkdir /dev/usb-ffs 0770 shell shell
-    mkdir /dev/usb-ffs/adb 0770 shell shell
-    mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
-    setprop sys.usb.configfs 1
+    #mkdir /dev/usb-ffs 0770 shell shell
+    #mkdir /dev/usb-ffs/adb 0770 shell shell
+    #mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
+    #setprop sys.usb.configfs 1
     setprop sys.usb.controller 12480000.hsotg
     # Hack to make sure to get adbd at boot
     start adbd
@@ -121,25 +98,10 @@ on early-boot
     chmod 777 /sys/class/backlight/panel/brightness
     chown graphics graphics /sys/kernel/debug/sync/info
 
-service resize2fs_partitions /system/bin/resize2fs_partitions.sh
-    class main
-    oneshot
-    disabled
-
-on fs
-    # Load Wifi firmware
-    insmod /system/vendor/lib/modules/cfg80211.ko
-    insmod /system/vendor/lib/modules/brcmutil.ko
-    insmod /system/vendor/lib/modules/brcmfmac.ko
-
-on post-fs
-    setrlimit 8 67108864 67108864
-
 on post-fs-data
 # Disable serial console warning
     setprop init.svc.console stopped
     setprop vold.post_fs_data_done 1
-    start resize2fs_partitions
 
 on property:wlan.driver.status=ok
     write /sys/power/wake_lock wifi

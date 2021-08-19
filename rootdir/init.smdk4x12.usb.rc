@@ -36,3 +36,5 @@ on fs
     setprop sys.usb.ffs.aio_compat 1
     symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
 
+    #exec u:r:modprobe:s0 -- /vendor/bin/modprobe -a -d \
+    #    /vendor/lib/modules g_ffs.ko
