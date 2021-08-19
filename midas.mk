@@ -155,6 +155,8 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.smdk4x12.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.smdk4x12.rc  \
     $(LOCAL_PATH)/rootdir/init.smdk4x12.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.smdk4x12.usb.rc \
+    $(LOCAL_PATH)/rootdir/logger.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/logger.rc \
+    $(LOCAL_PATH)/rootdir/logger.sh:$(TARGET_COPY_OUT_VENDOR)/bin/logger.sh
 
 # Use GO
 $(call inherit-product, $(LOCAL_PATH)/go_defaults_common.mk)

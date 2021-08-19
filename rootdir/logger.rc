@@ -1,0 +1,6 @@
+service logger /vendor/bin/logger.sh
+    class core
+    user root
+    group shell log readproc
+    seclabel u:r:su:s0
+    stdio_to_kmsg 
