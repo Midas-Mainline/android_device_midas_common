@@ -33,6 +33,7 @@ using android::OK;
 using android::status_t;
 
 int main() {
+    ALOGE("main()");
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
     android::sp<IUsbGadget> service2 = new UsbGadget();
@@ -44,9 +45,9 @@ int main() {
         return 1;
     }
 
-    ALOGI("USB Gadget HAL Ready.");
+    ALOGE("USB Gadget HAL Ready.");
     joinRpcThreadpool();
     // Under noraml cases, execution will not reach this line.
-    ALOGI("USB Gadget HAL failed to join thread pool.");
+    ALOGE("USB Gadget HAL failed to join thread pool.");
     return 1;
 }
